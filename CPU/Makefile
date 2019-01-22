@@ -2,7 +2,7 @@
 all: pazam_cpu
 
 pazam_cpu: pazam_cpu.c fft64.c 
-	cc -lm -o pazam_cpu pazam_cpu.c fft64.c -I./
+	gcc -lm -o pazam_cpu pazam_cpu.c fft64.c -lm -I./
 
 clean: 
 	rm pazam_cpu
