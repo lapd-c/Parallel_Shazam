@@ -1,3 +1,43 @@
+# How to run
+## Build
+```sh
+cd CPU
+make
+```
+
+## Test
+- Input
+  + Training dataset: put all original/training wav files to **data** dir
+  + A wav file to detect
+
+```sh
+./pazam_cpu ../recs/heroesandmartyrs_rec.wav
+
+CPU Pazam running... 
+Generating hashes for original files.. 
+1:4967 hashes for ../data/prehibernation.wav
+Time taken: 2 seconds 686 milliseconds
+2:3431 hashes for ../data/ttatr.wav
+Time taken: 1 seconds 836 milliseconds
+3:4935 hashes for ../data/heroesandmartyrs.wav
+Time taken: 2 seconds 436 milliseconds
+4:4678 hashes for ../data/symphony.wav
+Time taken: 2 seconds 465 milliseconds
+5:8871 hashes for ../data/coloris.wav
+Time taken: 4 seconds 546 milliseconds
+Generating hashes for recorded file.. 
+Calculating score.. 
+Score for prehibernation.wav = 0.104892
+Score for ttatr.wav = 0.073739
+Score for heroesandmartyrs.wav = 0.121378
+Score for symphony.wav = 0.126764
+Score for coloris.wav = 0.080262
+Best Score: symphony.wav
+Total time taken: 15 seconds 307 milliseconds
+
+
+```
+# Introduction
 ## Pazam
 Music identification using a parallelized version of the Shazam algorithm
 
