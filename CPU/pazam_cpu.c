@@ -77,56 +77,56 @@ int generatehashes(char *input_file, int** hashtable, int mysongid)
     return 0;
   }
 
-  //printf("reading %s \n", input_file);
+  printf("reading %s \n", input_file);
   
   sread = fread(&riff[0], 1, 4, inp);
-  //printf("first 4 bytes should be RIFF, <%c%c%c%c>\n",riff[0],riff[1],riff[2],riff[3]);
+  printf("first 4 bytes should be RIFF, <%c%c%c%c>\n",riff[0],riff[1],riff[2],riff[3]);
   
   sread = fread(&fsize, 1, 4, inp);
-  //printf("file has %d +8 bytes \n", fsize);
+  printf("file has %d +8 bytes \n", fsize);
   
   sread = fread(&wave[0], 1, 4, inp);
-  //printf("should be WAVE, <%c%c%c%c>\n",wave[0],wave[1],wave[2],wave[3]);
+  printf("should be WAVE, <%c%c%c%c>\n",wave[0],wave[1],wave[2],wave[3]);
   
   sread = fread(&fmt[0], 1, 4, inp);
-  //printf("should be fmt, <%c%c%c%c>\n",fmt[0],fmt[1],fmt[2],fmt[3]);
+  printf("should be fmt, <%c%c%c%c>\n",fmt[0],fmt[1],fmt[2],fmt[3]);
   
   sread = fread(&nbytes, 1, 4, inp);
-  //printf("block has %d more bytes \n", nbytes);
+  printf("block has %d more bytes \n", nbytes);
   
   sread = fread(&ccode, 1, 2, inp);
-  //printf("compression code = %d \n", ccode);
+  printf("compression code = %d \n", ccode);
   nbytes = nbytes-2;
   
   sread = fread(&channels, 1, 2, inp);
-  //printf("channels = %d \n", channels);
+  printf("channels = %d \n", channels);
   nbytes = nbytes-2;
   
   sread = fread(&rate, 1, 4, inp);
-  //printf("rate = %d  \n", rate);
+  printf("rate = %d  \n", rate);
   nbytes = nbytes-4;
   
   sread = fread(&avgrate, 1, 4, inp);
-  //printf("avg rate = %d \n", avgrate);
+  printf("avg rate = %d \n", avgrate);
   nbytes = nbytes-4;
   
   sread = fread(&blockalign, 1, 2, inp);
-  //printf("blockalign = %d  \n", blockalign);
+  printf("blockalign = %d  \n", blockalign);
   nbytes = nbytes-2;
   
   sread = fread(&bps, 1, 2, inp);
-  //printf("bits per sample = %d \n", bps);
+  printf("bits per sample = %d \n", bps);
   nbytes = nbytes-2;
-  //printf("bytes left in fmt = %d \n", nbytes);
+  printf("bytes left in fmt = %d \n", nbytes);
   for(i=0; i<nbytes; i++) sread = fread(&stuf, 1, 1, inp);
   
   sread = fread(&data[0], 1, 4, inp);
-  //printf("should be data, <%c%c%c%c>\n",data[0],data[1],data[2],data[3]);
+  printf("should be data, <%c%c%c%c>\n",data[0],data[1],data[2],data[3]);
   
   sread = fread(&csize, 1, 4, inp);
-  //printf("chunk has %d more bytes \n", csize);
+  printf("chunk has %d more bytes \n", csize);
   nbread = 44+nbytes;
-  //printf("%d bytes read so far \n", nbread);
+  printf("%d bytes read so far \n", nbread);
   
   bad = 0;
   savg = 0;
@@ -204,7 +204,7 @@ int main(int argc, char * argv[])
   printf("CPU Pazam running... \n");
   if(argc<2)
   {
-    printf("no excerpt file to open \n");
+    printf("no detection(wav) file to open. Please provide a recorded wav file as input to detect \n");
     exit(1);
   }
   start_total = clock();
